@@ -1,0 +1,44 @@
+🐛 Task 1.1 – Locust Simulation (Basic)
+Goal
+
+Simulate N=50 locusts moving around a circular arena (circumference C=0.5).
+
+Each locust moves either left (-v) or right (+v) with speed 0.01.
+
+Each timestep:
+
+Locusts may switch direction spontaneously with probability P=0.15.
+
+Locusts may also switch if they detect that the majority of neighbors within range r=0.045 move the opposite way.
+
+We track their positions and directions over time.
+
+Plan
+
+Initialize locusts:
+
+Random positions (0–C).
+
+Random directions (±1).
+
+Update each timestep:
+
+Move position: pos = (pos + dir * v) % C.
+
+With probability P, flip direction.
+
+Otherwise check neighbors: if majority moves opposite → flip.
+
+Store:
+
+Positions and directions at each step.
+
+Number of left-goers L.
+
+Animate:
+
+Show locusts as dots moving on a ring (unwrapped as a line [0,C]).
+
+Color by direction (red = left, blue = right).
+
+Also plot L(t) live as animation.
